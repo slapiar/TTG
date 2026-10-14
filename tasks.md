@@ -63,3 +63,9 @@
 - Posledný zistený CI beh CTT z 7. 10. 2026 má výsledok **failure**: https://github.com/slapiar/CTT/actions/runs/37608061174 .
 - GitHub API pri tomto behu nevrátilo diagnostické kroky jobu; príčina zatiaľ **nezistená**. Nesmieme tvrdiť, že je chybný build aplikácie.
 - Priradenie: Issue #1. Nasledujúci krok: overiť dostupné logy alebo lokálny minimálny build; opravu navrhnúť až po identifikácii príčiny.
+
+## Rozhodnutie — priorita CI (14. 10. 2026)
+
+- Neúspešný GitHub Actions CI beh CTT **neblokuje dokončenie statického auditu ani pokračovanie ďalšími úlohami**.
+- Diagnostiku CI odložiť do fázy prípravy buildu, ak sa ukáže ako potrebná. Preferovať krátke overenie na testovacom webe.
+- Neodbočovať od auditu kvôli infraštruktúrnym testom.
