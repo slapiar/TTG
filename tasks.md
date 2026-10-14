@@ -13,7 +13,7 @@
 | 4 | [#4](https://github.com/slapiar/TTG/issues/4) | Audit termika XC/CC: moduly a vlastníctvo | HOTOVÉ — STATICKÝ AUDIT | 83 položiek / 42 skupín; individuálne runtime stavy treba rešpektovať |
 | 5 | [#5](https://github.com/slapiar/TTG/issues/5) | Audit WordPress TOPTOUR: API a obsah | HOTOVÉ — ZÁKLADNÝ READ-ONLY AUDIT | REST posts/pages/media a Tourfic namespace overené; obchodné API kontrakty v #6 |
 | 6 | [#6](https://github.com/slapiar/TTG/issues/6) | Uzavrieť audit a schváliť mapu komponentov | NÁVRH VYPRACOVANÝ — NA SCHVÁLENIE | ADR-002 v docs/INTEGRATION_ARCHITECTURE.md; otvorené detaily neblokujú prototyp |
-| 7 | [#7](https://github.com/slapiar/TTG/issues/7) | Po audite: prototyp WordPress → TTG → BabylonJS | ODLOŽENÉ | Realizovať až po schválení auditu |
+| 7 | [#7](https://github.com/slapiar/TTG/issues/7) | Prototyp WordPress → TTG → BabylonJS | ROZPRACOVANÉ | Draft PR #9: izolovaná Babylon scéna; WordPress adaptér a vizuálne overenie čakajú |
 | 8 | [#8](https://github.com/slapiar/TTG/issues/8) | Joyee Samba: hudba, synchronizácia a prepínač zvuku | PRIPRAVENÉ NA PRIDELENIE | Po #7; realizátor nepridelený |
 
 ## Zistenia evidované na ďalšie riešenie
@@ -128,3 +128,11 @@
 - Pridať prepínač zvuku (zapnúť/vypnúť); predvolene stlmené, bez nevyžiadaného autoplay audia.
 - Vypnutie zvuku nesmie zastaviť animáciu. Overiť plynulé slučkovanie a správanie na mobile.
 - Zatiaľ návrh do #7; bez implementácie pred dokončením architektonickej etapy.
+
+## Implementácia #7 — prvá etapa (14. 10. 2026)
+
+- Vývojová vetva: `feature/ttg-prototype-7`.
+- Draft PR: https://github.com/slapiar/TTG/pull/9
+- Pripravené `prototype/index.html`, `prototype/main.js`, `prototype/README.md`.
+- Prvá etapa: BabylonJS HVGirl + Samba; bez hudby a bez WordPress integrácie.
+- **Neoverené:** beh v prehliadači, externé ESM moduly/model a licenčné podmienky. Bez merge a bez produkčného nasadenia.
