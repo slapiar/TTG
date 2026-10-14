@@ -12,7 +12,7 @@
 | 3 | [#3](https://github.com/slapiar/TTG/issues/3) | Audit Reference Finder: entity a API | HOTOVÉ — STATICKÝ AUDIT | CRUD, väzby, REST a oprávnenia preskúmané; publikačný kontrakt v #6 |
 | 4 | [#4](https://github.com/slapiar/TTG/issues/4) | Audit termika XC/CC: moduly a vlastníctvo | HOTOVÉ — STATICKÝ AUDIT | 83 položiek / 42 skupín; individuálne runtime stavy treba rešpektovať |
 | 5 | [#5](https://github.com/slapiar/TTG/issues/5) | Audit WordPress TOPTOUR: API a obsah | HOTOVÉ — ZÁKLADNÝ READ-ONLY AUDIT | REST posts/pages/media a Tourfic namespace overené; obchodné API kontrakty v #6 |
-| 6 | [#6](https://github.com/slapiar/TTG/issues/6) | Uzavrieť audit a schváliť mapu komponentov | ČAKÁ | Konsolidovať technický audit a integračné rozhrania |
+| 6 | [#6](https://github.com/slapiar/TTG/issues/6) | Uzavrieť audit a schváliť mapu komponentov | NÁVRH VYPRACOVANÝ — NA SCHVÁLENIE | ADR-002 v docs/INTEGRATION_ARCHITECTURE.md; otvorené detaily neblokujú prototyp |
 | 7 | [#7](https://github.com/slapiar/TTG/issues/7) | Po audite: prototyp WordPress → TTG → BabylonJS | ODLOŽENÉ | Realizovať až po schválení auditu |
 
 ## Zistenia evidované na ďalšie riešenie
@@ -96,3 +96,10 @@
 - **#4 statická inventúra uzavretá:** termika CC registry 83 položiek v 42 skupinách (6 infrastructure, 12 kernels, 7 services, 58 UX). Register má iba jednu položku runtime_enabled=true. Individuálne manifesty meteo-core a terrain-analysis-core sú NEOVERENE; host-context je WRAPPED_CC. Rozdiel medzi register-level a module-level runtime údajmi zohľadniť pri integrácii.
 - **#5 základný read-only audit uzavretý:** WPVibe potvrdil aktívne WooCommerce, Tourfic, Elementor, LiteSpeed Cache a REST namespace. GET posts/pages/media s obmedzenými poľami úspešný. Neoverovali sa zápisy ani obchodné endpointy.
 - **#6 zostáva otvorená:** zjednotenie dátových identít, vlastníctva API a schválenie integračných kontraktov; bez migrácie.
+
+## Úloha #6 — architektúra pripravená na schválenie (14. 10. 2026)
+
+- Dokument: [docs/INTEGRATION_ARCHITECTURE.md](docs/INTEGRATION_ARCHITECTURE.md).
+- Rozdelenie vlastníkov, základné dátové kontrakty, bezpečnostné hranice a integračné poradie sú navrhnuté.
+- Historické CI a moduly termiky so stavom NEOVERENE nie sú blokátormi prvého jednoduchého prototypu.
+- #6 uzavrieť po potvrdení architektonického návrhu; #7 následne otvoriť ako prvý funkčný experiment.
