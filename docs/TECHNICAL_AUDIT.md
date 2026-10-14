@@ -49,3 +49,34 @@
 - Návrh minimálneho prototypu WordPress → TTG → BabylonJS.
 
 **Princíp:** Jeden komponent, jeden vlastník, viacero použití. Bez migrácie a refaktoringu pred dokončením auditu.
+
+## Doplnenie auditu — 14. 10. 2026
+
+### CTT — stav zdrojov
+- Overené zdrojové súbory: BabylonJS mountScene s cleanup, Cesium mountMap s cleanup, WGS84 validateDestination, UI actionButton, Tenerife prepínanie, dáta Tenerife, testy, npm workspaces a CI.
+- Závislosti: Node 24, npm 11, BabylonJS 9.29.0, Cesium 1.146.0, Vite 8.3.3, TypeScript 7.0.2. Build ani WebGL sa v tomto audite nevykonali.
+
+### TOPTOUR-Core — stav zdrojov
+- Offers: metadáta WooCommerce produktov vrátane kapacity, ceny, sezóny, manažéra; `show_in_rest=false`.
+- Managers: aktuálne iba prázdny init() bez hookov.
+- Reservations: definícia SQL schémy; inštalácia tabuľky nie je zapojená.
+
+### Reference Finder — stav zdrojov
+- Manifest označuje aktívny interný manažérsky systém; triedy Destinations, Facilities a Offers obsahujú databázové CRUD a filtrovanie.
+- REST API: implementovaný POST `/toptour-ref/v1/import-task-text` s capability kontrolou; ostatné uvedené endpointy sú plánované.
+- Interné analytické dáta sa nesmú automaticky zverejňovať v TTG; treba explicitný publikačný kontrakt.
+
+### termika — stav zdrojov
+- `CC/registry/modules.json`: 70 transferable, 1 architectural, 12 kernels, 83 celkom. `CC/README.md` uvádza 69 prenesených položiek. Rozdiel vo vykazovaní preveriť podľa registra a kategorizácie.
+- `CC/registry/host-code-owners.json` uvádza 48 JavaScript proxy; dokument `HOST-SEPARATION.md` uvádza 47. Rozdiel preveriť, pravdepodobne rôzny čas evidencie.
+- `runtime_enabled=false` nie je dôkaz funkčného zapojenia. XC zostáva referenciou.
+
+### Produkčný WordPress — overenie iba na čítanie
+- WPVibe site_info potvrdilo pripojenie na `https://toptour.top`, tému Royal Elementor Kit, aktívne Elementor, WooCommerce, Tourfic a LiteSpeed Cache.
+- REST index deklaruje namespace `wp/v2`, `wc/v3`, `wc/store` a `tf/v1`.
+- GET `/wp/v2/posts`, `/wp/v2/pages` a `/wp/v2/media` vrátili existujúce záznamy; GET `/tf/v1` vrátil register rout.
+- GET `/wp/v2/types` cez konektor vrátil prázdne pole; treba overiť, či ide o obmedzenie konektora alebo konfiguráciu API.
+- Konektor hlási overené autentifikované čítanie; publikovanie a zápisy neboli testované.
+
+### Záver a hranice overenia
+**Dokončená inventúra a zdrojová analýza vybraných rozhodujúcich komponentov. Technický audit nie je úplne uzavretý:** chýba izolovaný build/test CTT, vizuálny WebGL test, detailný audit všetkých modulov termika, presné API kontrakty a runtime validácia integrácie. Tieto overenia zostávajú v Issues #1–#6; Issue #7 sa nezačne pred ich uzavretím.
