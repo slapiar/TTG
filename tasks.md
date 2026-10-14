@@ -36,3 +36,16 @@
 - Stav `HOTOVÉ` používame až po overení výstupu; plán nie je implementácia.
 - Po každej pracovnej etape aktualizujeme tento register.
 - **Jeden komponent, jeden vlastník, viacero použití.**
+
+## Doplnené zistenia (14. 10. 2026)
+
+| Zistenie | Úloha | Stav |
+| --- | --- | --- |
+| CTT: CI existuje, ale build/test/WebGL neboli spustené | #1 | OTVORENÉ |
+| TOPTOUR-Core: managers je placeholder; rezervácie bez inštalácie tabuľky | #2 | ZDROJ OVERENÝ, RUNTIME NIE |
+| Reference Finder: CRUD pre destinácie, zariadenia a ponuky; REST väčšinou TODO | #3 | ZDROJ OVERENÝ, RUNTIME NIE |
+| termika: register 83 položiek, rozdiel počtov oproti dokumentácii (69/70 a 47/48) | #4 | OTVORENÉ |
+| WordPress: WP REST posts/pages/media čítanie funguje, Tourfic namespace existuje; /wp/v2/types cez konektor vrátil [] | #5 | ČIASTOČNE OVERENÉ |
+| Schváliť publikačné kontrakty a mapovanie ponúk medzi Reference Finder a TOPTOUR-Core | #6 | OTVORENÉ |
+
+**Brána k implementácii:** #7 zostáva ODLOŽENÉ až do uzavretia auditu a schválenia jeho záverov.
