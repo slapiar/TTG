@@ -80,3 +80,12 @@
 
 ### Záver a hranice overenia
 **Dokončená inventúra a zdrojová analýza vybraných rozhodujúcich komponentov. Technický audit nie je úplne uzavretý:** chýba izolovaný build/test CTT, vizuálny WebGL test, detailný audit všetkých modulov termika, presné API kontrakty a runtime validácia integrácie. Tieto overenia zostávajú v Issues #1–#6; Issue #7 sa nezačne pred ich uzavretím.
+
+## Záverečné doplnenie statického auditu — 14. 10. 2026
+
+- TOPTOUR-Core MANIFEST: obchodná ponuka je WooCommerce produkt s vlastnými meta poľami; CTA preferuje „Overiť dostupnosť“ / „Rezervovať“; nejde o generický booking engine. Manažér je referencia na WP používateľa.
+- Reference Finder installer obsahuje reálne SQL schémy destinácií, zariadení, ponúk a zberových úloh. Reference Finder eviduje analytické ponuky, zatiaľ čo TOPTOUR-Core predajné produkty; neztotožňovať ich bez mapovania.
+- CTT README potvrdzuje výstup `apps/tenerife/dist` a vývojový charakter demonštračnej 3D scény.
+- Zvolený spôsob následného overenia: existujúce základné kontroly a krátky browser smoke test na oddelenom testovacom webe; žiadna rozsiahla testovacia infraštruktúra.
+
+**Stav:** statická inventúra kľúčových zdrojov dokončená v rozsahu vybraných rozhodujúcich súborov; plný audit runtime a všetkých modulov nie. Otvorené body zostávajú v tasks.md / Issues #1–#6. Neoznačovať celý technický audit za úspešne otestovaný.
