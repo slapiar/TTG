@@ -111,3 +111,10 @@
 - Navrhnutá ako východisko prvého TTG playgroundu; zachovať vizuálne správanie, adaptovať globálny `BABYLON` na TypeScript/modulové importy.
 - Externé závislosti: `https://assets.babylonjs.com/meshes/HVGirl.glb` a relatívne `textures/skybox2`, `textures/wood.jpg`. Pred testom overiť dostupnosť textúr a podmienky použitia modelu.
 - Ide o návrh pre #7; zatiaľ bez zásahu do aplikačného kódu.
+
+## Rozšírenie konceptu #7 — Joyee ako virtuálna sprievodkyňa (14. 10. 2026)
+
+- Používateľ schválil zámer dať 3D sprievodkyni v TTG hlas Joyee.
+- Architektúra: samostatné moduly 3D avatar/animácie (BabylonJS), hlasový vstup a výstup, konverzačný systém; zdieľané rozhranie v TTG.
+- Presnú dostupnosť hlasu z ChatGPT vo webovej aplikácii treba overiť podľa možností vybraného hlasového API; zatiaľ nesľubovať identický hlas.
+- Implementácia patrí do neskoršej etapy po základnej scéne a jednoduchom prototype; neblokuje uzavretie auditu.
