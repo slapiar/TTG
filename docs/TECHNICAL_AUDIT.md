@@ -112,3 +112,17 @@
 - Triedy Offer Snapshots a Reference Sources implementujú historizáciu ponúk a evidenciu zdrojov. Výstup do TTG vyžaduje samostatný publikačný adaptér a bezpečnostné pravidlá.
 
 **Stav #2/#3:** statický audit hlavných integračných kontraktov uzavretý; runtime nasadenie neoverené. Nevyžaduje blokovať ďalšiu inventúru #4/#5. Definitívne integračné rozhodnutia patria do #6.
+
+## Uzavretie inventúry #4 a #5 — 14. 10. 2026
+
+### termika
+- `CC/registry/modules.json`: 83 položiek, rozdelenie 6 infrastructure / 12 kernels / 7 services / 58 ux; `groups.json` uvádza 42 skupín.
+- V centrálnom registri je jediný `runtime_enabled=true`; individuálny `host-context/module.json` uvádza `WRAPPED_CC` a `runtime_enabled=true`.
+- `meteo-core` a `terrain-analysis-core` majú `functional_status=NEOVERENE` a `runtime_enabled=false`.
+- Kandidáti na integráciu ostávajú vo vlastníctve termika. TTG použije adaptéry, nie duplicity.
+
+### WordPress TOPTOUR
+- WPVibe potvrdil tému Royal Elementor Kit a aktívne WooCommerce, Tourfic, Elementor a LiteSpeed Cache.
+- Čítanie `wp/v2/posts`, `wp/v2/pages`, `wp/v2/media` s obmedzenými poľami vrátilo reálne záznamy vrátane URL médií.
+- `tf/v1` existuje ako REST namespace; konkrétne obchodné volania sa netestovali.
+- Úloha #5 je uzavretá iba ako základný read-only audit. Verejné kontrakty obchodných dát, oprávnenia a mapovanie identít zostávajú predmetom #6.
