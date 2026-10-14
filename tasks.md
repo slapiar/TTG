@@ -8,10 +8,10 @@
 | Poradie | GitHub Issue | Úloha | Stav | Výstup / poznámka |
 | --- | --- | --- | --- | --- |
 | 1 | [#1](https://github.com/slapiar/TTG/issues/1) | Audit CTT: zdrojový kód, závislosti a build | ROZPRACOVANÉ | Zdrojový kód a konfigurácia prečítané; build, testy a WebGL neoverené |
-| 2 | [#2](https://github.com/slapiar/TTG/issues/2) | Audit TOPTOUR-Core: modely a REST | ČAKÁ | Skontrolovať dátové modely, REST a prístupové oprávnenia |
-| 3 | [#3](https://github.com/slapiar/TTG/issues/3) | Audit Reference Finder: entity a API | ČAKÁ | Oddeliť implementované endpointy od plánovaných |
-| 4 | [#4](https://github.com/slapiar/TTG/issues/4) | Audit termika XC/CC: moduly a vlastníctvo | ČAKÁ | Overiť registre, závislosti a stav jednotlivých modulov |
-| 5 | [#5](https://github.com/slapiar/TTG/issues/5) | Audit WordPress TOPTOUR: API a obsah | ČAKÁ | Inventúra REST API a dátových väzieb iba na čítanie |
+| 2 | [#2](https://github.com/slapiar/TTG/issues/2) | Audit TOPTOUR-Core: modely a REST | HOTOVÉ — STATICKÝ AUDIT | Modely a prístupové hranice preskúmané; rozhodnutie o úložisku rezervácií v #6 |
+| 3 | [#3](https://github.com/slapiar/TTG/issues/3) | Audit Reference Finder: entity a API | HOTOVÉ — STATICKÝ AUDIT | CRUD, väzby, REST a oprávnenia preskúmané; publikačný kontrakt v #6 |
+| 4 | [#4](https://github.com/slapiar/TTG/issues/4) | Audit termika XC/CC: moduly a vlastníctvo | NASLEDUJE | Overiť registre, závislosti a stav jednotlivých modulov |
+| 5 | [#5](https://github.com/slapiar/TTG/issues/5) | Audit WordPress TOPTOUR: API a obsah | ČIASTOČNE OVERENÉ — NASLEDUJE | REST posts/pages/media a pluginy overené; zostáva mapovanie dátových väzieb |
 | 6 | [#6](https://github.com/slapiar/TTG/issues/6) | Uzavrieť audit a schváliť mapu komponentov | ČAKÁ | Konsolidovať technický audit a integračné rozhrania |
 | 7 | [#7](https://github.com/slapiar/TTG/issues/7) | Po audite: prototyp WordPress → TTG → BabylonJS | ODLOŽENÉ | Realizovať až po schválení auditu |
 
