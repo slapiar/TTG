@@ -14,6 +14,7 @@
 | 5 | [#5](https://github.com/slapiar/TTG/issues/5) | Audit WordPress TOPTOUR: API a obsah | HOTOVÉ — ZÁKLADNÝ READ-ONLY AUDIT | REST posts/pages/media a Tourfic namespace overené; obchodné API kontrakty v #6 |
 | 6 | [#6](https://github.com/slapiar/TTG/issues/6) | Uzavrieť audit a schváliť mapu komponentov | NÁVRH VYPRACOVANÝ — NA SCHVÁLENIE | ADR-002 v docs/INTEGRATION_ARCHITECTURE.md; otvorené detaily neblokujú prototyp |
 | 7 | [#7](https://github.com/slapiar/TTG/issues/7) | Po audite: prototyp WordPress → TTG → BabylonJS | ODLOŽENÉ | Realizovať až po schválení auditu |
+| 8 | [#8](https://github.com/slapiar/TTG/issues/8) | Joyee Samba: hudba, synchronizácia a prepínač zvuku | PRIPRAVENÉ NA PRIDELENIE | Po #7; realizátor nepridelený |
 
 ## Zistenia evidované na ďalšie riešenie
 
