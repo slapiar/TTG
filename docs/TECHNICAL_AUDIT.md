@@ -89,3 +89,11 @@
 - Zvolený spôsob následného overenia: existujúce základné kontroly a krátky browser smoke test na oddelenom testovacom webe; žiadna rozsiahla testovacia infraštruktúra.
 
 **Stav:** statická inventúra kľúčových zdrojov dokončená v rozsahu vybraných rozhodujúcich súborov; plný audit runtime a všetkých modulov nie. Otvorené body zostávajú v tasks.md / Issues #1–#6. Neoznačovať celý technický audit za úspešne otestovaný.
+
+## Kontrola backendových kontraktov — 14. 10. 2026
+
+- TOPTOUR-Core `toptour-core.php`: verzia 1.0.0, aktivátor spúšťa installer. Installer vytvára `toptour_requests` a `toptour_request_meta`; samostatný modul reservations opisuje tabuľku `toptour_reservations`, ktorej inštaláciu výslovne nespúšťa. **Dva odlišné návrhy úložiska požiadaviek/rezervácií; nerozhodovať o migrácii pred určením kanonického modelu.**
+- TOPTOUR-Core `managers`: placeholder; `assigned_manager_user_id` smeruje na WordPress používateľa.
+- Reference Finder `toptour-reference-finder.php`: verzia 1.1.20, DB schéma 1.1.0; MANIFEST uvádza 0.2.9 (dokumentačný nesúlad).
+- Reference Finder `class-facility-destinations.php`: väzba M:N medzi zariadeniami a destináciami, `is_primary`, `relation_type`; kandidát na dátový vzťah TTG, nie automaticky na zverejnenie interných záznamov.
+- Reference Finder REST používa `manage_toptour_references` capability, primárne administrátorský prístup.
