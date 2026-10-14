@@ -118,3 +118,12 @@
 - Architektúra: samostatné moduly 3D avatar/animácie (BabylonJS), hlasový vstup a výstup, konverzačný systém; zdieľané rozhranie v TTG.
 - Presnú dostupnosť hlasu z ChatGPT vo webovej aplikácii treba overiť podľa možností vybraného hlasového API; zatiaľ nesľubovať identický hlas.
 - Implementácia patrí do neskoršej etapy po základnej scéne a jednoduchom prototype; neblokuje uzavretie auditu.
+
+## Hudba a ovládanie tanečnej scény — návrh pre #7
+
+- Pre demo `HVGirl.glb` / animáciu `Samba` pripraviť hudobný podklad: buď legálne použiteľná free skladba, alebo originálna AI hudba s overenými právami na komerčné použitie.
+- Pred výberom BPM zmerať skutočnú dĺžku cyklu animácie; 110 BPM je iba východiskový odhad.
+- Synchronizovať animáciu a hudobnú slučku, prípadne jemne nastaviť rýchlosť animácie.
+- Pridať prepínač zvuku (zapnúť/vypnúť); predvolene stlmené, bez nevyžiadaného autoplay audia.
+- Vypnutie zvuku nesmie zastaviť animáciu. Overiť plynulé slučkovanie a správanie na mobile.
+- Zatiaľ návrh do #7; bez implementácie pred dokončením architektonickej etapy.
