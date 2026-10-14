@@ -78,3 +78,15 @@
 | TOPTOUR-Core aktivácia iba zisťuje WooCommerce, jeho neprítomnosť však neblokuje inštaláciu. | #2 | ZDROJ OVERENÝ |
 | Reference Finder má väzbu zariadenie ↔ destinácia M:N a označenie primárnej destinácie. | #3 | ZDROJ OVERENÝ |
 | Reference Finder má v hlavnom súbore verziu 1.1.20, ale MANIFEST uvádza 0.2.9. Zjednotiť dokumentačnú verziu bez zásahu do runtime. | #3 | OTVORENÉ |
+
+## Pokračovanie úloh #2 a #3 — 14. 10. 2026
+
+| Úloha | Zistenie | Stav |
+| --- | --- | --- |
+| #2 | TOPTOUR-Core: offers registruje 14 vlastných polí produktov, managers nemá implementované hooky; reservations nemá aktívnu registráciu hookov. | STATICKY OVERENÉ |
+| #2 | Installer používa requests/request_meta, reservations má alternatívnu neinštalovanú schému; kanonické úložisko určiť až pri návrhu integrácie. | ODLOŽENÉ ROZHODNUTIE |
+| #3 | Reference Finder má CRUD a väzby, snapshoty ponúk a zdrojové referencie. Loader registruje dva REST kontroléry. | STATICKY OVERENÉ |
+| #3 | Okrem import-task-text existuje päť autentifikovaných tracer endpointov v namespace toptour/v1. Predchádzajúce tvrdenie o jedinom implementovanom endpointe platilo len pre toptour-ref/v1. | OPRAVENÉ |
+| #3 | Tracer endpointy sú interné, chránené capability manage_toptour_references; nepatria do verejného TTG API. | KONTRAKT |
+
+**#2 a #3:** hlavná zdrojová inventúra hotová; bez runtime validácie a bez zmien v pluginoch. Nasleduje #4 a #5; integračné rozhodnutia uzavrieť v #6.
