@@ -49,3 +49,11 @@
 | Schváliť publikačné kontrakty a mapovanie ponúk medzi Reference Finder a TOPTOUR-Core | #6 | OTVORENÉ |
 
 **Brána k implementácii:** #7 zostáva ODLOŽENÉ až do uzavretia auditu a schválenia jeho záverov.
+
+## Rozhodnutie o testovaní — 14. 10. 2026
+
+- Uprednostniť jednoduché overenie buildu a vizuálne overenie priamo na testovacom webe; nezavádzať rozsiahlu testovaciu infraštruktúru.
+- Historické testovacie URL Guider TEREM: https://jarmok.shop/guider/dist/ ; Babylon Lite: https://jarmok.shop/guider/lite-lab/ . Aktuálna dostupnosť a vhodnosť na TTG sa musí preveriť.
+- Zachovať existujúce základné kontroly CTT (typecheck/test/build), bez rozširovania testovacieho frameworku.
+- Pred použitím hostingu overiť izoláciu od existujúceho Guider TEREM; nič neprepisovať bez výslovného rozhodnutia.
+- Úloha #1: skrátiť testovací plán na minimálny build + browser smoke test. Úloha #7 zostáva odložená do uzavretia auditu.
