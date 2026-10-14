@@ -57,3 +57,9 @@
 - Zachovať existujúce základné kontroly CTT (typecheck/test/build), bez rozširovania testovacieho frameworku.
 - Pred použitím hostingu overiť izoláciu od existujúceho Guider TEREM; nič neprepisovať bez výslovného rozhodnutia.
 - Úloha #1: skrátiť testovací plán na minimálny build + browser smoke test. Úloha #7 zostáva odložená do uzavretia auditu.
+
+## Nové zistenie — GitHub Actions CTT (14. 10. 2026)
+
+- Posledný zistený CI beh CTT z 7. 10. 2026 má výsledok **failure**: https://github.com/slapiar/CTT/actions/runs/37608061174 .
+- GitHub API pri tomto behu nevrátilo diagnostické kroky jobu; príčina zatiaľ **nezistená**. Nesmieme tvrdiť, že je chybný build aplikácie.
+- Priradenie: Issue #1. Nasledujúci krok: overiť dostupné logy alebo lokálny minimálny build; opravu navrhnúť až po identifikácii príčiny.
