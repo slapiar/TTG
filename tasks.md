@@ -69,3 +69,12 @@
 - Neúspešný GitHub Actions CI beh CTT **neblokuje dokončenie statického auditu ani pokračovanie ďalšími úlohami**.
 - Diagnostiku CI odložiť do fázy prípravy buildu, ak sa ukáže ako potrebná. Preferovať krátke overenie na testovacom webe.
 - Neodbočovať od auditu kvôli infraštruktúrnym testom.
+
+## Nové zistenia — 14. 10. 2026 (audit backendu)
+
+| Zistenie | Úloha | Stav |
+| --- | --- | --- |
+| TOPTOUR-Core installer vytvára `toptour_requests` a `toptour_request_meta`, zatiaľ čo modul reservations definuje samostatnú `toptour_reservations` bez inštalácie. Overiť zamýšľaný jediný model požiadaviek/rezervácií. | #2 | OTVORENÉ — integračné rozhodnutie |
+| TOPTOUR-Core aktivácia iba zisťuje WooCommerce, jeho neprítomnosť však neblokuje inštaláciu. | #2 | ZDROJ OVERENÝ |
+| Reference Finder má väzbu zariadenie ↔ destinácia M:N a označenie primárnej destinácie. | #3 | ZDROJ OVERENÝ |
+| Reference Finder má v hlavnom súbore verziu 1.1.20, ale MANIFEST uvádza 0.2.9. Zjednotiť dokumentačnú verziu bez zásahu do runtime. | #3 | OTVORENÉ |
