@@ -97,3 +97,18 @@
 - Reference Finder `toptour-reference-finder.php`: verzia 1.1.20, DB schéma 1.1.0; MANIFEST uvádza 0.2.9 (dokumentačný nesúlad).
 - Reference Finder `class-facility-destinations.php`: väzba M:N medzi zariadeniami a destináciami, `is_primary`, `relation_type`; kandidát na dátový vzťah TTG, nie automaticky na zverejnenie interných záznamov.
 - Reference Finder REST používa `manage_toptour_references` capability, primárne administrátorský prístup.
+
+## Doplnenie auditov #2 a #3 — 14. 10. 2026
+
+### #2 TOPTOUR-Core
+- `modules/offers/class-offers.php` poskytuje metadátovú schému a WordPress administračné formuláre; neimplementuje verejný REST katalóg. Ponuky sú WooCommerce produkty.
+- `modules/managers/class-managers.php` má zatiaľ iba prázdnu inicializáciu.
+- `modules/reservations/class-reservations.php` má návrh SQL schémy, ale registrácia hookov je prázdna; existujúce `toptour_requests` a `toptour_request_meta` sú definované v inštalátore. Bez automatického zlúčenia alebo migrácie.
+
+### #3 Reference Finder
+- Loader registruje REST kontroléry `Toptour_Ref_REST_API` a `Toptour_Ref_Debug_Tracer_API`.
+- `toptour-ref/v1`: implementovaný POST `import-task-text`; ostatné obchodné endpointy sú komentované TODO.
+- **Oprava predchádzajúceho zistenia:** `toptour/v1` má päť implementovaných tracer POST rout: `initialize`, `generate-batch`, `process-ai`, `import-results`, `cleanup-run`. Každá používa capability `manage_toptour_references` a nie je verejným katalógovým API.
+- Triedy Offer Snapshots a Reference Sources implementujú historizáciu ponúk a evidenciu zdrojov. Výstup do TTG vyžaduje samostatný publikačný adaptér a bezpečnostné pravidlá.
+
+**Stav #2/#3:** statický audit hlavných integračných kontraktov uzavretý; runtime nasadenie neoverené. Nevyžaduje blokovať ďalšiu inventúru #4/#5. Definitívne integračné rozhodnutia patria do #6.
