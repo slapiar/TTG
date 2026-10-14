@@ -103,3 +103,11 @@
 - Rozdelenie vlastníkov, základné dátové kontrakty, bezpečnostné hranice a integračné poradie sú navrhnuté.
 - Historické CI a moduly termiky so stavom NEOVERENE nie sú blokátormi prvého jednoduchého prototypu.
 - #6 uzavrieť po potvrdení architektonického návrhu; #7 následne otvoriť ako prvý funkčný experiment.
+
+## Referenčná BabylonJS scéna pre #7 — 14. 10. 2026
+
+- Vlastník poskytol `babika.js`, ukážkovú scénu z Babylon Playground.
+- Scéna obsahuje `HVGirl.glb`, animáciu `Samba`, ArcRotateCamera, hemisférické a smerové svetlo, skybox a podlahu s textúrou.
+- Navrhnutá ako východisko prvého TTG playgroundu; zachovať vizuálne správanie, adaptovať globálny `BABYLON` na TypeScript/modulové importy.
+- Externé závislosti: `https://assets.babylonjs.com/meshes/HVGirl.glb` a relatívne `textures/skybox2`, `textures/wood.jpg`. Pred testom overiť dostupnosť textúr a podmienky použitia modelu.
+- Ide o návrh pre #7; zatiaľ bez zásahu do aplikačného kódu.
