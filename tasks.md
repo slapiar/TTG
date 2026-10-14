@@ -1,1 +1,38 @@
+# TTG — Register úloh
 
+**Aktualizované:** 14. 10. 2026  
+**Aktuálna etapa:** Technický audit. Pred jeho uzavretím nevykonávame migrácie, refaktoring ani zásahy do produkcie.
+
+## Poradie a stav úloh
+
+| Poradie | GitHub Issue | Úloha | Stav | Výstup / poznámka |
+| --- | --- | --- | --- | --- |
+| 1 | [#1](https://github.com/slapiar/TTG/issues/1) | Audit CTT: zdrojový kód, závislosti a build | ROZPRACOVANÉ | Zdrojový kód a konfigurácia prečítané; build, testy a WebGL neoverené |
+| 2 | [#2](https://github.com/slapiar/TTG/issues/2) | Audit TOPTOUR-Core: modely a REST | ČAKÁ | Skontrolovať dátové modely, REST a prístupové oprávnenia |
+| 3 | [#3](https://github.com/slapiar/TTG/issues/3) | Audit Reference Finder: entity a API | ČAKÁ | Oddeliť implementované endpointy od plánovaných |
+| 4 | [#4](https://github.com/slapiar/TTG/issues/4) | Audit termika XC/CC: moduly a vlastníctvo | ČAKÁ | Overiť registre, závislosti a stav jednotlivých modulov |
+| 5 | [#5](https://github.com/slapiar/TTG/issues/5) | Audit WordPress TOPTOUR: API a obsah | ČAKÁ | Inventúra REST API a dátových väzieb iba na čítanie |
+| 6 | [#6](https://github.com/slapiar/TTG/issues/6) | Uzavrieť audit a schváliť mapu komponentov | ČAKÁ | Konsolidovať technický audit a integračné rozhrania |
+| 7 | [#7](https://github.com/slapiar/TTG/issues/7) | Po audite: prototyp WordPress → TTG → BabylonJS | ODLOŽENÉ | Realizovať až po schválení auditu |
+
+## Zistenia evidované na ďalšie riešenie
+
+| Zdroj | Zistenie | Riešiť v |
+| --- | --- | --- |
+| CTT | Node.js >=24 <25, npm >=11 <12; potrebné zosúladiť prostredie | #1 |
+| CTT | BabylonJS a CesiumJS majú zdrojový prototyp, ale nie overený runtime | #1 |
+| CTT | CI vykonáva npm ci a npm run check; výsledky behu zatiaľ neoverené | #1 |
+| TOPTOUR-Core | Meta ponúk sú registrované s show_in_rest=false | #2, #5 |
+| TOPTOUR-Core | Rezervačný modul obsahuje schému, nie aktivovaný systém | #2 |
+| Reference Finder | REST endpoint import-task-text existuje; mnohé ostatné sú TODO | #3 |
+| termika | Stav prenesenia modulu nie je dôkaz funkčnosti; XC je referencia | #4 |
+| TTG / CTT | Spoločné komponenty a ontológia majú smerovať pod jedného vlastníka TTG | #6 |
+
+## Pravidlá evidencie
+
+- `tasks.md` je prehľadný poradovník a stavový register; GitHub Issues obsahujú detaily a priebeh.
+- `docs/TECHNICAL_AUDIT.md` uchováva technické zistenia a dôkazy.
+- Nové významné zistenie priradíme k existujúcej úlohe alebo vytvoríme nové Issue.
+- Stav `HOTOVÉ` používame až po overení výstupu; plán nie je implementácia.
+- Po každej pracovnej etape aktualizujeme tento register.
+- **Jeden komponent, jeden vlastník, viacero použití.**
