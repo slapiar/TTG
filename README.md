@@ -72,3 +72,8 @@ Podrobné definície a schvaľovanie nových pojmov budú vedené v samostatnej 
 ## Stav
 
 **Architektonický základ / pred implementáciou.** Tento README definuje smer, nie hotové funkcie ani overené produkčné nasadenie.
+
+## Hlasový a textový komunikátor — 31. 10. 2026
+
+Zdroj samostatného WordPress pluginu je v [`plugins/toptour-communicator`](plugins/toptour-communicator/README.md). Obsahuje presúvateľný panel, Gemini Live cez obmedzené tokeny, textový fallback a súkromné obchodné požiadavky. Implementácia 0.1.0 nie je potvrdené produkčné nasadenie. Kontrakty, inštalácia a hranice overenia sú pri plugine.
+
