@@ -1,4 +1,4 @@
-# TOPTOUR Communicator 0.1.1
+# TOPTOUR Communicator 0.1.2
 
 Samostatne inštalovateľný WordPress plugin, zdroj vlastnený TTG. Jeden komunikátor na webe, jeden serverový profil; nejde o viacnájomnícku službu. TOPTOUR-Core zostáva cieľovým vlastníkom obchodných dát. Prvá verzia má súkromný CPT `ttg_inquiry` bez migrácie existujúcich tabuliek. Budúce prepojenie použije explicitný adaptér, bez druhej evidencie.
 
@@ -62,3 +62,9 @@ Pri REST tokenoch používame **wire formát** `bidiGenerateContentSetup` a `fie
 ## Oprava administrácie 0.1.1
 
 Samostatné menu `admin.php?page=ttg-joyee`, registrácia v admin_menu s prioritou 99, pôvodný settings alias zachovaný a odkaz Nastavenia v zozname pluginov. Na nasadenom webe bolo overené: verzia 0.1.0 aktívna a účet admin má manage_options. Presná príčina pôvodného blokovania admin stránky zostáva nepotvrdená; oprava poskytuje nezávislý vstup. Nová verzia zatiaľ nebola overená v administrácii produkčného webu.
+
+## Oprava oprávnení 0.1.2 — potvrdená príčina
+
+CPT mal `map_meta_cap=true` spolu s `edit_post/read_post/delete_post=manage_options`. WordPress zaregistroval primitívne `manage_options` ako metacap požadujúci ID príspevku a `current_user_can(manage_options)` začalo vracať false aj administrátorovi. Pre explicitné primitívne mapovanie CPT sa teraz používa `map_meta_cap=false`. Žiadne používateľské roly ani uložené oprávnenia netreba meniť.
+
+Reprodukcia v čerstvom skutočnom WordPresse 7.1.4/PHP 8.3 so SQLite: verzia 0.1.1 → oba admin odkazy HTTP 403; verzia 0.1.2 → oba HTTP 200 s formulárom nastavení. Overený aj prístup správcu k súkromnému záznamu a zamietnutie anonymného prístupu. Regresný test: `TTG_WP_ROOT=/path/to/isolated/wordpress php tests/wordpress.php`. Ide o izolovanú lokálnu inštaláciu, nie potvrdenie aktualizácie produkcie. Živé Gemini volania ostávajú samostatne neoverené.

@@ -2,17 +2,17 @@
 /**
  * Plugin Name: TOPTOUR Communicator
  * Description: Presúvateľná hlasová a textová Joyee s Gemini Live a súkromnou evidenciou požiadaviek.
- * Version: 0.1.1
+ * Version: 0.1.2
  * Requires at least: 6.5
  * Requires PHP: 8.1
  */
 if (!defined('ABSPATH')) { exit; }
 final class TTG_Communicator {
-    const VERSION = '0.1.1';
+    const VERSION = '0.1.2';
     public static function key() { return defined('TTG_GEMINI_API_KEY') ? TTG_GEMINI_API_KEY : getenv('GEMINI_API_KEY'); }
     public static function settings() { return wp_parse_args(get_option('ttg_communicator', []), ['enabled'=>false,'context'=>'','voice'=>'Kore','position'=>'right','hourly_limit'=>20]); }
     public static function init() {
-        add_action('init', function () { register_post_type('ttg_inquiry', ['label'=>'Joyee — požiadavky','public'=>false,'show_ui'=>true,'show_in_rest'=>false,'supports'=>['title','editor'],'capability_type'=>'post','capabilities'=>['create_posts'=>'do_not_allow','edit_posts'=>'manage_options','edit_others_posts'=>'manage_options','read_private_posts'=>'manage_options','delete_posts'=>'manage_options','delete_others_posts'=>'manage_options','edit_post'=>'manage_options','read_post'=>'manage_options','delete_post'=>'manage_options','edit_private_posts'=>'manage_options','edit_published_posts'=>'manage_options','delete_private_posts'=>'manage_options','delete_published_posts'=>'manage_options','publish_posts'=>'manage_options'],'map_meta_cap'=>true]); });
+        add_action('init', function () { register_post_type('ttg_inquiry', ['label'=>'Joyee — požiadavky','public'=>false,'show_ui'=>true,'show_in_rest'=>false,'supports'=>['title','editor'],'capability_type'=>'post','capabilities'=>['create_posts'=>'do_not_allow','edit_posts'=>'manage_options','edit_others_posts'=>'manage_options','read_private_posts'=>'manage_options','delete_posts'=>'manage_options','delete_others_posts'=>'manage_options','edit_post'=>'manage_options','read_post'=>'manage_options','delete_post'=>'manage_options','edit_private_posts'=>'manage_options','edit_published_posts'=>'manage_options','delete_private_posts'=>'manage_options','delete_published_posts'=>'manage_options','publish_posts'=>'manage_options'],'map_meta_cap'=>false]); });
         add_action('admin_menu', [__CLASS__, 'menu'], 99);
         add_filter('plugin_action_links_'.plugin_basename(__FILE__), [__CLASS__, 'action_links']);
         add_action('admin_init', [__CLASS__, 'register_settings']);

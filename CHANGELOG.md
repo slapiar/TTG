@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Fixed — 0.1.2
+- Odstránená potvrdená príčina odmietnutia admin stránok: map_meta_cap=false pri explicitnom primitívnom mapovaní oprávnení CPT. Predchádzajúce nastavenie registrovalo manage_options ako metacap a blokovalo ho aj administrátorovi.
+- Reprodukcia so skutočným WordPressom 7.1.4/PHP 8.3: oba admin odkazy 403 pred opravou, 200 s formulárom po oprave. Regresný integračný test overuje zachovanie manage_options, registráciu admin stránky, správcu súkromných požiadaviek a anonymné zamietnutie.
+
+
 ### Fixed — 0.1.1
 - Nezávislá administračná položka TOPTOUR Joyee a Nastavenia v zozname pluginov; pôvodný odkaz zachovaný.
 - Overené produkčné oprávnenie admin/manage_options. Presná príčina blokovania settings stránky nepotvrdená.

@@ -145,3 +145,6 @@
 - Zdroj zostáva v TTG; evidencia je dočasne súkromný CPT bez migrácie TOPTOUR-Core. Prepojenie existujúcich požiadaviek vyžaduje explicitný adaptér.
 - Podrobné kontrakty a výsledky kontrol: dokumentácia pri plugine. Návštevník má automatický jazyk a SK/EN/DE/FR/ES ručný fallback. Používateľ nepreberá úlohu testovacieho operátora.
 
+
+### Komunikátor — oprava 0.1.2
+Príčina chyby admin oprávnení reprodukovaná v skutočnom WordPresse: kolízia primitívneho manage_options s map_meta_cap CPT. Opravené bez zmien rolí. Oba admin vstupy overené HTTP 200; regresný test v tests/wordpress.php. Produkčná aktualizácia a živé Gemini spojenie zostávajú nepotvrdené.
