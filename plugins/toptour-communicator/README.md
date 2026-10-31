@@ -1,4 +1,4 @@
-# TOPTOUR Communicator 0.1.0
+# TOPTOUR Communicator 0.1.1
 
 Samostatne inštalovateľný WordPress plugin, zdroj vlastnený TTG. Jeden komunikátor na webe, jeden serverový profil; nejde o viacnájomnícku službu. TOPTOUR-Core zostáva cieľovým vlastníkom obchodných dát. Prvá verzia má súkromný CPT `ttg_inquiry` bez migrácie existujúcich tabuliek. Budúce prepojenie použije explicitný adaptér, bez druhej evidencie.
 
@@ -6,7 +6,7 @@ Samostatne inštalovateľný WordPress plugin, zdroj vlastnený TTG. Jeden komun
 
 1. Adresár `toptour-communicator` vložiť do `wp-content/plugins/` alebo nahrať jeho ZIP cez administráciu WordPressu. Vyžaduje WP 6.5+, PHP 8.1+, HTTPS.
 2. Na serveri nastaviť premennú `GEMINI_API_KEY` alebo konštantu `TTG_GEMINI_API_KEY` vo `wp-config.php`. Kľúč nie je súčasťou balíka, databázy nastavení ani výstupu do prehliadača.
-3. Aktivovať plugin. Nastavenia → TOPTOUR Joyee: vložiť schválené **verejné** podklady, zvoliť hlas a polohu, povoliť zobrazenie. Prázdne podklady alebo chýbajúci kľúč panel nezobrazia.
+3. Aktivovať plugin. Hlavné menu → TOPTOUR Joyee (alebo odkaz Nastavenia pri plugine): vložiť schválené **verejné** podklady, zvoliť hlas a polohu, povoliť zobrazenie. Prázdne podklady alebo chýbajúci kľúč panel nezobrazia.
 4. Požiadavky sa zobrazia v administrácii „Joyee — požiadavky“. Prístup má správca s `manage_options`. Plugin nemaže údaje pri deaktivovaní.
 
 ## Implementované správanie
@@ -58,3 +58,7 @@ Bez závislosti na Babylone: následné napojenie avatara použije stavové udal
 PHP 8.3 lint: oba súbory OK. Serverové testy: 15/15. Node AudioWorklet + DOM testy: 4/4 vrátane constrained endpointu, barge-in, jazykového fallbacku a zrušenia čakajúceho mikrofónu. Browser screenshot/layout test zostal nevykonaný, pretože sťahovanie Chromium vrátilo neplatný archív; nejde o potvrdené vizuálne overenie.
 
 Pri REST tokenoch používame **wire formát** `bidiGenerateContentSetup` a `fieldMask`, nie SDK parameter `liveConnectConstraints`. WebSocket používa `BidiGenerateContentConstrained`. Mapovanie bolo porovnané so zdrojmi oficiálneho SDK `googleapis/js-genai/src/tokens.ts`, `src/converters/_tokens_converters.ts` a `src/live.ts`; dokumentačná curl ukážka tieto vrstvy zamieňa. v1beta vychádza z aktuálnej dokumentácie tokenov; samotný online handshake bez serverového kľúča nebol vykonaný.
+
+## Oprava administrácie 0.1.1
+
+Samostatné menu `admin.php?page=ttg-joyee`, registrácia v admin_menu s prioritou 99, pôvodný settings alias zachovaný a odkaz Nastavenia v zozname pluginov. Na nasadenom webe bolo overené: verzia 0.1.0 aktívna a účet admin má manage_options. Presná príčina pôvodného blokovania admin stránky zostáva nepotvrdená; oprava poskytuje nezávislý vstup. Nová verzia zatiaľ nebola overená v administrácii produkčného webu.

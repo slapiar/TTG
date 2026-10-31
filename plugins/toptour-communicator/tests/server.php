@@ -3,7 +3,7 @@
 define('ABSPATH',__DIR__); $options=[]; $transients=[]; $posts=[]; $calls=[]; $fail_db=false; $fail_google=false;
 class WP_Error { public $code; function __construct($c,$m='',$d=[]){$this->code=$c;} }
 class WP_REST_Response { public $data; public $status; function __construct($d,$s){$this->data=$d;$this->status=$s;} function header($a,$b){} }
-function add_action(...$v){} function is_wp_error($v){return $v instanceof WP_Error;}
+function add_action(...$v){} function add_filter(...$v){} function plugin_basename($v){return basename($v);} function current_user_can($v){return true;} function admin_url($v){return 'https://toptour.test/wp-admin/'.$v;} function esc_url($v){return $v;} function add_menu_page(...$v){global $menus;$menus[]=$v;} function add_options_page(...$v){global $aliases;$aliases[]=$v;} function is_wp_error($v){return $v instanceof WP_Error;}
 function wp_parse_args($a,$b){return array_merge($b,$a);} function get_option($k,$default=false){global $options;return $options[$k]??$default;}
 function add_option($k,$v,...$rest){global $options;if(isset($options[$k]))return false;$options[$k]=$v;return true;} function delete_option($k){global $options;unset($options[$k]);}
 function get_transient($k){global $transients;return $transients[$k]??false;} function set_transient($k,$v,$ttl){global $transients;$transients[$k]=$v;return true;}
@@ -34,3 +34,8 @@ $fail_db=false;$fail_google=true;$res=TTG_Communicator::inquiry(new Request('inq
 check($posts[0]['post_status']==='private'&&str_contains($posts[0]['post_content'],'nepodarilo'),'private enquiry retains transcript and summary failure');
 $res2=TTG_Communicator::inquiry(new Request('inquiry',$data,$headers));check($res2->data['id']===$res->data['id']&&count($posts)===1,'duplicate submission returns original ID');
 check(TTG_Communicator::quota('single',1) && !TTG_Communicator::quota('single',1),'rate ceiling enforced');
+
+$menus=[];$aliases=[];TTG_Communicator::menu();
+check($menus[0][3]==='ttg-joyee' && $menus[0][2]==='manage_options','independent top-level admin page registered');
+check($aliases[0][3]==='ttg-communicator','original settings alias retained');
+$links=TTG_Communicator::action_links(['Deactivate']);check(str_contains($links[0],'admin.php?page=ttg-joyee'),'plugin settings link targets independent admin page');
