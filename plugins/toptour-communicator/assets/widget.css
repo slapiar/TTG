@@ -1,0 +1,15 @@
+#ttg-voice{font:15px/1.45 system-ui,sans-serif;color:#18332e;position:fixed;right:20px;bottom:20px;z-index:99999;max-width:calc(100vw - 20px)}
+#ttg-voice *{box-sizing:border-box}#ttg-voice [hidden]{display:none!important}
+#ttg-voice button{font:inherit;cursor:pointer;border:1px solid #bad2c9;background:#f0f7f3;color:#18332e;border-radius:9px;padding:8px 12px;line-height:1.3;min-height:40px}
+#ttg-voice button:disabled{opacity:.55;cursor:wait}#ttg-voice button:focus-visible,#ttg-voice header:focus-visible{outline:3px solid #eeae43;outline-offset:2px}
+#ttg-voice .ttgv-launch{background:#174c40;color:white;box-shadow:0 6px 24px #0003;border:0}
+#ttgv-panel{width:380px;max-width:calc(100vw - 20px);background:#fff;border:1px solid #cbdcd4;border-radius:16px;box-shadow:0 12px 48px #0003;overflow:hidden}
+#ttg-voice header{display:flex;justify-content:space-between;align-items:center;background:#174c40;color:white;padding:10px 14px;cursor:move;touch-action:none;user-select:none}
+#ttg-voice header button{background:transparent;color:white;border-color:#ffffff60;font-size:23px;padding:0 12px}
+#ttg-voice .ttgv-body{padding:14px;max-height:calc(100dvh - 110px);overflow:auto}#ttg-voice .ttgv-status{margin:0 0 10px;font-size:13px}
+#ttg-voice .ttgv-consent{font-size:12px}#ttg-voice .ttgv-log{max-height:220px;overflow:auto;margin:12px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+#ttg-voice .ttgv-log p{padding:9px;background:#f1f6f3;border-radius:9px;margin:6px 0}#ttg-voice .ttgv-log p[data-role=user]{background:#e3eee9}
+#ttg-voice .ttgv-controls{display:flex;flex-wrap:wrap;gap:5px}#ttg-voice .ttgv-languages{padding:12px 0}#ttg-voice label{display:block;margin:8px 0}
+#ttg-voice input:not([type=checkbox]),#ttg-voice textarea,#ttg-voice select{font:inherit;background:white;color:#18332e;width:100%;padding:8px;border:1px solid #adc5ba;border-radius:7px}#ttg-voice textarea{resize:vertical}
+#ttg-voice input[type=checkbox]{width:auto;accent-color:#174c40}#ttg-voice summary{cursor:pointer;margin-top:14px;font-weight:600}
+@media(max-width:520px){#ttg-voice{left:10px!important;right:10px!important;top:auto!important;bottom:10px!important;max-width:none}#ttgv-panel{width:100%;max-width:none}#ttg-voice .ttgv-body{max-height:65dvh}#ttg-voice header{cursor:default}}

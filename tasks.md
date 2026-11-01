@@ -136,3 +136,15 @@
 - Pripravené `prototype/index.html`, `prototype/main.js`, `prototype/README.md`.
 - Prvá etapa: BabylonJS HVGirl + Samba; bez hudby a bez WordPress integrácie.
 - **Neoverené:** beh v prehliadači, externé ESM moduly/model a licenčné podmienky. Bez merge a bez produkčného nasadenia.
+
+## Komunikátor Joyee — 31. 10. 2026
+
+- Nový zdroj: `plugins/toptour-communicator/`, samostatne inštalovateľný WordPress plugin 0.1.0.
+- Implementované: Gemini Live, serverové obmedzené tokeny, PCM AudioWorklet, prepis, prerušenie, jazykový → textový fallback, presun/zbalenie, textové odpovede, potvrdená súkromná požiadavka a slovenské zhrnutie.
+- Stav: zdroj a izolované kontroly hotové; živé API a nasadenie WordPressu v tejto etape nepotvrdené. Serverový kľúč nie je súčasťou repozitára.
+- Zdroj zostáva v TTG; evidencia je dočasne súkromný CPT bez migrácie TOPTOUR-Core. Prepojenie existujúcich požiadaviek vyžaduje explicitný adaptér.
+- Podrobné kontrakty a výsledky kontrol: dokumentácia pri plugine. Návštevník má automatický jazyk a SK/EN/DE/FR/ES ručný fallback. Používateľ nepreberá úlohu testovacieho operátora.
+
+
+### Komunikátor — oprava 0.1.2
+Príčina chyby admin oprávnení reprodukovaná v skutočnom WordPresse: kolízia primitívneho manage_options s map_meta_cap CPT. Opravené bez zmien rolí. Oba admin vstupy overené HTTP 200; regresný test v tests/wordpress.php. Produkčná aktualizácia a živé Gemini spojenie zostávajú nepotvrdené.
